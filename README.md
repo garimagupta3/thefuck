@@ -145,7 +145,7 @@ eval $(thefuck --alias FUCK)
 Changes are only available in a new shell session. To make changes immediately
 available, run `source ~/.bashrc` (or your shell config file like `.zshrc`).
 
-To run fixed commands without confirmation, use the `--yeah` option (or just `-y` for short, or `--hard` if you're especially frustrated):
+To run fixed commands without confirmation, use the `--yeah` option (or just `-y` for short):
 
 ```bash
 fuck --yeah
@@ -321,6 +321,7 @@ The following rules are enabled by default on specific platforms only:
 * `dnf_no_such_command` &ndash; fixes mistyped DNF commands;
 * `nixos_cmd_not_found` &ndash; installs apps on NixOS;
 * `pacman` &ndash; installs app with `pacman` if it is not installed (uses `yay` or `yaourt` if available);
+* `pacman_invalid_option` &ndash; replaces lowercase `pacman` options with uppercase.
 * `pacman_not_found` &ndash; fixes package name with `pacman`, `yay` or `yaourt`.
 
 The following commands are bundled with *The Fuck*, but are not enabled by
