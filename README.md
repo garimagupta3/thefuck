@@ -145,7 +145,7 @@ eval $(thefuck --alias FUCK)
 Changes are only available in a new shell session. To make changes immediately
 available, run `source ~/.bashrc` (or your shell config file like `.zshrc`).
 
-To run fixed commands without confirmation, use the `--yeah` option (or just `-y` for short, or `--hard` if you're especially frustrated):
+To run fixed commands without confirmation, use the `--yeah` option (or just `-y` for short):
 
 ```bash
 fuck --yeah
@@ -322,6 +322,7 @@ The following rules are enabled by default on specific platforms only:
 * `nixos_cmd_not_found` &ndash; installs apps on NixOS;
 * `pacman` &ndash; installs app with `pacman` if it is not installed (uses `yay` or `yaourt` if available);
 * `pacman_not_found` &ndash; fixes package name with `pacman`, `yay` or `yaourt`.
+* `yum_invalid_operation` &ndash; fixes invalid `yum` calls, like `yum isntall vim`;
 
 The following commands are bundled with *The Fuck*, but are not enabled by
 default:
@@ -352,8 +353,8 @@ Your rule should not change `Command`.
 
 **Rules api changed in 3.0:** To access a rule's settings, import it with
  `from thefuck.conf import settings`
-
-`settings` is a special object assembled from `~/.config/thefuck/settings.py`,
+  
+`settings` is a special object assembled from `~/.config/thefuck/settings.py`, 
 and values from env ([see more below](#settings)).
 
 A simple example rule for running a script with `sudo`:
