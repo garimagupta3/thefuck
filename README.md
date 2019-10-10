@@ -145,7 +145,7 @@ eval $(thefuck --alias FUCK)
 Changes are only available in a new shell session. To make changes immediately
 available, run `source ~/.bashrc` (or your shell config file like `.zshrc`).
 
-To run fixed commands without confirmation, use the `--yeah` option (or just `-y` for short, or `--hard` if you're especially frustrated):
+To run fixed commands without confirmation, use the `--yeah` option (or just `-y` for short):
 
 ```bash
 fuck --yeah
@@ -203,6 +203,7 @@ following rules are enabled by default:
 * `git_branch_delete` &ndash; changes `git branch -d` to `git branch -D`;
 * `git_branch_exists` &ndash; offers `git branch -d foo`, `git branch -D foo` or `git checkout foo` when creating a branch that already exists;
 * `git_branch_list` &ndash; catches `git branch list` in place of `git branch` and removes created branch;
+* `git_branch_0v_to_dash_v` &ndash; undoes `git branch 0v` and runs `git branch -v` in its place;
 * `git_checkout` &ndash; fixes branch name or creates new branch;
 * `git_commit_amend` &ndash; offers `git commit --amend` after previous commit;
 * `git_commit_reset` &ndash; offers `git reset HEAD~` after previous commit;
@@ -233,7 +234,6 @@ following rules are enabled by default:
 * `git_tag_force` &ndash; adds `--force` to `git tag <tagname>` when the tag already exists;
 * `git_two_dashes` &ndash; adds a missing dash to commands like `git commit -amend` or `git rebase -continue`;
 * `go_run` &ndash; appends `.go` extension when compiling/running Go programs;
-* `go_unknown_command` &ndash; fixes wrong `go` commands, for example `go bulid`;
 * `gradle_no_task` &ndash; fixes not found or ambiguous `gradle` task;
 * `gradle_wrapper` &ndash; replaces `gradle` with `./gradlew`;
 * `grep_arguments_order` &ndash; fixes `grep` arguments order for situations like `grep -lir . test`;
@@ -352,8 +352,8 @@ Your rule should not change `Command`.
 
 **Rules api changed in 3.0:** To access a rule's settings, import it with
  `from thefuck.conf import settings`
-
-`settings` is a special object assembled from `~/.config/thefuck/settings.py`,
+  
+`settings` is a special object assembled from `~/.config/thefuck/settings.py`, 
 and values from env ([see more below](#settings)).
 
 A simple example rule for running a script with `sudo`:
